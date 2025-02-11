@@ -2,11 +2,11 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -g
 SRC_DIR = src
 INCLUDE_DIR = include
-BUILD_DIR = build.bin
+BUILD_DIR = build
 
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
-TARGET = server
+TARGET = server.bin
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(BUILD_DIR)
@@ -17,4 +17,4 @@ $(TARGET): $(OBJS)
 
 .PHONY: clean
 clean:
-	rm -rf $(BUILD_DIR) $(TARGET)
+	@rm -rf $(BUILD_DIR) $(TARGET)
