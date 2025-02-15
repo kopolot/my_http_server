@@ -2,7 +2,6 @@
 #define SERVER_H
 
 #include <iostream>
-#include <string>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
@@ -12,10 +11,12 @@ class Server{
         Server( int port);
         ~Server();
         void start();
-    private:
+    protected:
         int server_fd;
         int port;
-        void handleClient( int client_socket);
+        int handleClient();
+        sockaddr_in getServerAddress();
+
 };
 
 #endif
