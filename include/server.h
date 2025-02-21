@@ -14,9 +14,12 @@ class Server{
     protected:
         int server_fd;
         int port;
-        int handleClient();
+        int acceptClient();
         sockaddr_in getServerAddress();
-
+        std::string reciveRequest( int clientSocket);
+        void closeClientSocket( int clientSocket);
+        std::string generateResponse( std::string request);
+        void sendResponse( int clientSocket ,std::string response);
 };
 
 #endif
